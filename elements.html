@@ -117,84 +117,134 @@ http://www.templatemo.com/tm-485-rainbow
                                 under the supervision of Dr. Christine Tardif, I designed, developed, and 
                                 implemented an MRI Acquisition Sequence, and reconstructed the image. Check 
                                 out my complete masters thesis here:
-                                <a href="https://www.mcgill.ca/biomedicalengineering/files/biomedicalengineering/jana_strizak_masters_thesis.pdf" target="_blank">Jana Strizak Masters Thesis</a>.
+                                <a href="https://escholarship.mcgill.ca/concern/theses/1544bv86t" target="_blank">My Masters Thesis</a>.
                             </p>
                         </div>
                         <div class="row">                                
                             <img src="img/labPic.jpg" alt="picture of me and my lab during my masters!" class="img-center" style="max-width:50%; height:auto; display: block; margin-left: auto; margin-right: auto;">
                         </div>
                     </section>
-                    <section class="tm-2-col-img-text">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 tm-2-col-img">                                
-                            <img src="img/MESSimage.png" alt="picture of my MRI trajectory!" class="img-fluid" style="max-width:100%; height:auto;">
-                        </div>
+                   
+                    <section class="tm-2-col-img-text container">
+                        <div class="row g-3"> <!-- BS5: g-* sets gutter; use g-0 if you want no gutters -->
+                            <!-- Left column -->
+                            <div class="col-12 col-lg-5 tm-2-col-img">
+                            <figure class="mb-0">
+                                <img src="img/MESSimage.png" alt="picture of my MRI trajectory!" class="img-fluid">
+                                <figcaption class="tm-2-col-text-description small text-muted mt-2">
+                                My k-space trajectory. Each color represents points collected for a different image. The echo time of each image is when the that image's trajectory
+                                color crosses the center of k-space (the center of the sphere).
+                                </figcaption>
+                            </figure>
+                            </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 tm-2-col-text">
-                            <h3 class="tm-2-col-text-title" style="font-size:1.6rem;">But here’s a basic run-down for the casual reader:</h3>
+                            <!-- Right column -->
+                            <div class="col-12 col-lg-7 tm-2-col-text">
+                            <h3 class="tm-2-col-text-title" style="font-size:1.6rem;">
+                                But here’s a basic run-down for the casual reader:
+                            </h3>
                             <p class="tm-2-col-text-description">
-                                MRI acquisition is performed in the frequency domain, not the spatial 
-                                domain! Which means instead of measuring the signal emitted by one point 
-                                in space, you acquire the combined signal for the entire object being 
-                                imaged at one frequency. The frequency is encoded with a spatially varying 
-                                magnetic field, and in-order to acquire a complete image, many different 
-                                points in the frequency domain (aka k-space) must be acquired. But how you 
-                                traverse the points is important too! Usually an evenly spaced grid of 
+                                MRI acquisition is performed in the frequency domain, not the spatial
+                                domain! Which means instead of measuring the signal emitted by one point
+                                in space, you acquire the combined signal for the entire object being
+                                imaged at one frequency. The frequency is encoded with a spatially varying
+                                magnetic field, and in-order to acquire a complete image, many different
+                                points in the frequency domain (aka k-space) must be acquired. But how you
+                                traverse the points is important too! Usually an evenly spaced grid of
                                 points is acquired, called Cartesian sampling.
                             </p>
-                            
+                            </div>
                         </div>
+                    </section>   
+
+                    <section class="tm-2-col-img-text container">
+                    <div class="row g-3">
+                        <!-- Left column -->
+                        <div class="col-12 col-lg-5 tm-2-col-text">
+                        <h3 class="tm-2-col-text-title" style="font-size:1.6rem;">
+                            Here's the trajectory I designed!
+                        </h3>
+                        <p class="tm-2-col-text-description">
+                            Some MRI applications, like quantitative brain mapping, require many 
+                            different consecutive images of the brain to be acquired. This is very 
+                            slow, and subjects often move, leading to motion artifacts in the image! 
+                            To speed up the acquisition, we can traverse the frequency domain in a 
+                            non-cartesian trajectory. Motion artifacts can be mitigated by oversampling 
+                            the center of k-space, due to signal averaging.
+                        </p>
+                        </div>
+
+                        <!-- Right column -->
+                        <div class="col-12 col-lg-7 tm-2-col-img">
+                        <figure class="mb-0">
+                            <img src="img/barinImage_withRinging.png" alt="My brain imaged with my trajectory!" class="img-fluid">
+                            <figcaption class="tm-2-col-text-description small text-muted mt-2">
+                            An image of my brain acquired with my trajectory at 7T, and a 0.8mm resolution, showing ringing artifacts due to fat signals.
+                            </figcaption>
+                        </figure>
+                        </div>
+                    </div>
                     </section>
 
-                    <section class="tm-2-col-img-text" id="tm-section-2">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 tm-2-col-text">
-                            <h3 class="tm-2-col-text-title" style="font-size:1.6rem;">Here's the trajectory I designed!</h3>
+                    <section class="tm-2-col-img-text tm-section-1">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-xs-center">
                             <p class="tm-2-col-text-description">
-                                Some MRI applications, like quantitative brain mapping, require many 
-                                different consecutive images of the brain to be acquired. This is very 
-                                slow, and subjects often move, leading to motion artifacts in the image! 
-                                To speed up the acquisition, we can traverse the frequency domain in a 
-                                non-cartesian trajectory. Motion artifacts can be mitigated by oversampling 
-                                the center of k-space, due to signal averaging. And in-order to rapidly 
+                                In-order to rapidly 
                                 capture consecutive images, there needs to be little delay between the 
-                                acquired data contributing to the subsequent and preceding images. With 
-                                these things in mind, I developed an Sieffert-spiral trajectory, which 
-                                spirals from the edge of k-space, to the center, and returns back to the 
+                                acquired data contributing to the subsequent and preceding images.
+                                With these things in mind, I developed a <a href="https://ieeexplore.ieee.org/document/8584498" target="_blank">Sieffert-spiral trajectory</a>,
+                                which spirals from the edge of k-space, to the center, and returns back to the 
                                 edge, where it precedes to capture the subsequent image’s data. This 
                                 picture shows a single interleave of my novel trajectory. In this case, 
                                 each of the 4 colors contributes to one image, but the number of images 
-                                captured is flexible. 
+                                captured is flexible.
                             </p>
-                         </div>
-                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 tm-2-col-img">                                
-                            <img src="img/barinImage_withRinging.png" alt="My brain imaged with my trajectroy" class="img-center" style="max-width:100%; height:auto;">
                         </div>
                     </section>
 
-                    <section class="tm-2-col-img-text">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 tm-2-col-img">                                
-                            <img src="img/barinImage_withOutRinging.png" alt="Now my brain with the universal pulse" class="img-center" style="max-width:100%; height:auto;">
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 tm-2-col-text">                                
+                    <section class="tm-2-col-img-text container">
+                        <div class="row g-3"> <!-- BS5: g-* sets gutter; use g-0 if you want no gutters -->
+                            <!-- Left column -->
+                            <div class="col-12 col-lg-7 tm-2-col-img">
+                            <figure class="mb-0">
+                                <img src="img/barinImage_withOutRinging.png" alt="Now my brain with the universal pulse" class="img-fluid">
+                                <figcaption class="tm-2-col-text-description small text-muted mt-2">
+                                Now the same procedure as before, but with a universal pulse to reduce fat ringing artifacts!
+                                </figcaption>
+                            </figure>
+                            </div>
+
+                            <!-- Right column -->
+                            <div class="col-12 col-lg-5 tm-2-col-text">
                             <p class="tm-2-col-text-description">
                                 This acquisition was implemented into a 7T MRI, but the acquired data needed 
                                 to be inverse Fourier transformed into the spatial domain so the image can 
                                 be seen. Under cartesian sampling conditions, a simple fast Fourier 
                                 transform is used, but my 3D non-cartesian trajectory required more 
-                                complex image reconstruction. After exploring many different algorithms, 
+                                complex image reconstruction. 
+                            </p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="tm-2-col-img-text tm-section-1">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-xs-center">
+                            <p class="tm-2-col-text-description">
+                                After exploring many different algorithms, 
                                 one, called Partial-Dual reconstruction with L1-wavelet regularization, 
-                                worked the best! This was outlined in this paper: <a href="https://www.mcgill.ca/biomedicalengineering/files/biomedicalengineering/jana_strizak_masters_thesis.pdf" target="_blank">Image reconstruction algorithm used</a>
+                                worked the best! This was outlined in this paper: <a href="https://ieeexplore.ieee.org/document/8906069" target="_blank">Image reconstruction algorithm used</a>
                                 but needed to be re-written on python to work for my dataset, which can be found on my 
-                                github: <a href="https://www.mcgill.ca/biomedicalengineering/files/biomedicalengineering/jana_strizak_masters_thesis.pdf" target="_blank">my github</a>. 
+                                github: <a href="https://github.com/jana-strizak/Seiffert_Spiral_MRI_Traj_MESS" target="_blank">my github</a>. 
                                 In the spirit of open science, the entire development and 
                                 reconstruction of my trajectory can be found on github. 
                             </p>
                         </div>
                     </section>
+                
                     <section class="tm-2-col-img-text tm-section-1" id="YoutubeChannel">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-xs-center">
                             <h3 class="tm-section-title">My Youtube Channel</h3>
                             <p class="tm-2-col-text-description">
-                                 As a side project, I started a YouTube channel where I teach
+                                As a side project, I started a YouTube channel where I teach
                                 machine learning concepts in a slow, calm, and relaxed manner.
                                 I believe that the best way to learn is to take your time, and take it slowly,
                                 as to not overwhelm yourself with the complexity of the subject.
@@ -206,14 +256,14 @@ http://www.templatemo.com/tm-485-rainbow
                     </section>
 
                     <section class="tm-2-col-img-text">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 tm-2-col-text">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-7 tm-2-col-text">
                             <p class="tm-2-col-text-description">
                                 I cover a wide range of topics, from the basics of machine learning to more advanced concepts.
                                 I also provide practical examples and exercises to help you understand the concepts better.
                                 If you're interested in learning more about machine learning, be sure to check out my channel!
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 tm-2-col-img">                                
-                            <img src="img/yb_neuralNetNaps.png" alt="picture of me!" class="img-center" style="max-width:100%; height:auto;">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-7 tm-2-col-img">                                
+                            <img src="img/yb_neuralNetNaps.png" alt="my youtube" class="img-center" style="max-width:100%; height:auto;">
                         </div>
                     </section>
 
