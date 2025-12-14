@@ -24,6 +24,18 @@ body {
 	background-repeat: repeat;
 }
 
+.tm-bg-text-content {
+	background-image: url('../img/pastelBg.jpeg');
+	background-repeat: repeat;
+	display: flex;
+	justify-content: center;   /* horizontal center */
+	align-items: center;       /* vertical center */
+	height: 100vh;             /* full viewport height */
+	margin: 0;                 /* remove default margin */
+	text-align: center;        /* center text inside */
+	flex-direction: column;    /* stack elements vertically */
+}
+
 a { color: #196d92;  }
 a, button { transition: all 0.3s ease; }
 button:focus { outline: none; }

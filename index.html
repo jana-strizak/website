@@ -226,7 +226,6 @@ http://www.templatemo.com/tm-485-rainbow
     <div class="tm-bg-img-header tm-section-contact-form">
         <div class="container-fluid">
             <div class="row">
-
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <form action="send_mail.php" method="post" class="tm-contact-form">                                
                         <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 tm-form-group-left">
@@ -241,7 +240,9 @@ http://www.templatemo.com/tm-485-rainbow
                         <div class="form-group">
                             <textarea id="contact_message" name="contact_message" class="form-control" rows="6" placeholder="Message" required></textarea>
                         </div>
-                    
+                        
+                        <input type="hidden" name="_redirect" value="https://jana-strizak.github.io/website/thank-you.html" />
+
                         <button type="submit" class="btn tm-btn-brown-square pull-xs-right">Submit</button>                          
                     </form>   
                 </div> <!-- col -->
