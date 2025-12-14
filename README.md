@@ -1,1 +1,1 @@
-see my website here: https://jana-strizak.github.io/website/
+Hi! See my website here: https://jana-strizak.github.io/website/
