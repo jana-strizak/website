@@ -30,7 +30,7 @@ button:focus { outline: none; }
 a:hover,
 a:focus,
 .nav-link.active {
-	color: #64572a;
+	color: #b86152;
 	text-decoration: none;
 	outline: none;
 }
@@ -509,9 +509,9 @@ textarea.form-control {
 
 .tm-social-icon-link-brown {
 	background-color: transparent;
-	color: #655623;
+	color: #db833b;
     padding: 8px;
-    border: 1px solid #917D33;
+    border: 1px solid #aa8349;
     border-radius: 50%;
     margin-right: 2%;
     width: 52px;
@@ -526,8 +526,8 @@ textarea.form-control {
 
 .tm-social-icon-link-brown:hover,
 .tm-social-icon-link-brown:focus {
-	color: #E3D4A9;
-	background-color: #655623; 
+	color: #2724eb;
+	background-color: #8d8cbd; 
 }
 
 .tm-btn-brown-square {
@@ -542,7 +542,7 @@ textarea.form-control {
 
 .tm-btn-brown-square:hover,
 .tm-btn-brown-square:focus {
-	background-color: #655623;
+	background-color: #1e21eb;
 	color: #E3D4A9;
 }
 
