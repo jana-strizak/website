@@ -12,6 +12,42 @@ body {
 	font-weight: 300;
 }
 
+
+/* Respect accessibility: disable effect if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .star { display: none !important; }
+}
+
+.star {
+  position: fixed;
+  left: 0; top: 0;
+  pointer-events: none;
+  z-index: 9999;
+  /* animation parameters via CSS vars */
+  animation: star-twinkle var(--star-duration, 600ms) ease-out forwards;
+  transform: translate(-50%, -50%) rotate(var(--star-rotate, 0deg));
+  filter: drop-shadow(0 0 6px rgba(119, 199, 252, 0.8));
+}
+
+/* Use a single pseudo-element to draw the star glyph */
+.star::before {
+  content: '✦';                    /* try '✧', '+', or '•' if you prefer */
+  font-size: var(--star-size, 12px);
+  line-height: 1;
+  color: #ffd54f;                  /* base yellow */
+  text-shadow:
+    0 0 6px rgba(255, 215, 0, 0.9),  /* glow */
+    0 0 12px rgba(135, 20, 158, 0.7); /* pink halo */
+}
+
+/* Animation: flicker, shrink, and fade */
+@keyframes star-twinkle {
+  0%   { opacity: 1; transform: translate(-50%, -50%) rotate(var(--star-rotate)) scale(1); }
+  50%  { opacity: 0.9; transform: translate(-50%, -50%) rotate(var(--star-rotate)) scale(1.2); }
+  100% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--star-rotate)) scale(0.3); }
+}
+
+
 .tm-bg-img-header {
 	background-image: url('../img/pastelBg.jpeg');
 	background-repeat: no-repeat;

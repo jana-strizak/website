@@ -26,6 +26,57 @@ http://www.templatemo.com/tm-485-rainbow
 </head>
 
 <body class="tm-bg-img-content">
+    
+    <script>
+    (() => {
+    const MAX_STARS = 50;             // keep DOM usage modest
+    let starCount = 0;
+    let lastSpawn = 0;
+
+    function spawnStar(x, y) {
+        if (starCount >= MAX_STARS) return;
+
+        const star = document.createElement('div');
+        star.className = 'star';
+
+        // Randomize position around cursor
+        const spread = 60;
+        const px = x + (Math.random() * spread - spread / 2);
+        const py = y + (Math.random() * spread - spread / 2);
+
+        // Randomize size/rotation/speed
+        const size = 5 + Math.random() * 10;                 // 8–18px font size
+        const rotate = Math.floor(Math.random() * 360);
+        const duration = 400 + Math.random() * 500;          // 0.4–0.9s
+
+        star.style.left = px + 'px';
+        star.style.top = py + 'px';
+        star.style.setProperty('--star-size', size + 'px');
+        star.style.setProperty('--star-rotate', rotate + 'deg');
+        star.style.setProperty('--star-duration', duration + 'ms');
+
+        document.body.appendChild(star);
+        starCount++;
+
+        // Remove when animation completes (robust vs. arbitrary timeouts)
+        star.addEventListener('animationend', () => {
+        star.remove();
+        starCount--;
+        });
+    }
+
+        // Throttle so we don’t spawn too many on continuous move
+        window.addEventListener('pointermove', (e) => {
+            const now = performance.now();
+            if (now - lastSpawn < 25) return; // ~40fps spawn limit
+            lastSpawn = now;
+
+            // Spawn a little burst each move
+            const burst = [1, 0.85, 0.7, 0.5];
+            burst.forEach(() => spawnStar(e.clientX, e.clientY));
+        }, { passive: true });
+        })();
+        </script>
 
     <div class="tm-bg-img-header">
         <div class="container-fluid">
